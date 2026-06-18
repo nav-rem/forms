@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funny Rainbow Page</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Comic Sans MS, cursive;
+        text-align: center;
+        background: linear-gradient(
+            45deg,
+            red,
+            orange,
+            yellow,
+            green,
+            cyan,
+            blue,
+            violet
+        );
+        background-size: 400% 400%;
+        animation: rainbow 8s infinite alternate;
+        color: white;
+    }
+
+    @keyframes rainbow {
+        0% { background-position: left; }
+        100% { background-position: right; }
+    }
+
+    h1 {
+        font-size: 4rem;
+        text-shadow: 4px 4px 10px black;
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .joke-box {
+        background: rgba(255,255,255,0.2);
+        width: 60%;
+        margin: auto;
+        padding: 20px;
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+        font-size: 1.5rem;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        border-radius: 50px;
+        background: gold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.2) rotate(5deg);
+        background: hotpink;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>😂 Funny Zone 😂</h1>
+
+<div class="joke-box" id="joke">
+    Click the button for a silly joke!
+</div>
+
+<button onclick="showJoke()">Tell Me A Joke!</button>
+
+<script>
+const jokes = [
+    "Why do programmers prefer dark mode? Because light attracts bugs! 🐛",
+    "I told my computer I needed a break... now it won't stop sending KitKat ads! 🍫",
+    "404 Joke Not Found 😂",
+    "Why did the JavaScript developer go broke? Because he used up all his cache! 💸",
+    "My code works. I have no idea why. 🤷",
+    "There are 10 types of people: those who understand binary and those who don't. 🤓",
+    "I would tell you a UDP joke, but you might not get it. 📡"
+];
+
+function showJoke() {
+    let random = Math.floor(Math.random() * jokes.length);
+    document.getElementById("joke").innerHTML = jokes[random];
+}
+</script>
+
+</body>
+</html>
